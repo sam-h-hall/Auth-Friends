@@ -2,8 +2,11 @@ import React from "react";
 import { Formik } from "formik";
 import { TextField, Button } from "@material-ui/core";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { friendFormStyles } from "../styles/friendFormStyles";
 
 export const FriendsForm = () => {
+  const classes = friendFormStyles();
+
   const handleSubmit = (values) => {
     console.log(values);
     axiosWithAuth()
@@ -25,7 +28,7 @@ export const FriendsForm = () => {
         {(props) => {
           const { values, handleSubmit, handleChange } = props;
           return (
-            <form onSubmit={handleSubmit}>
+            <form className={classes.root} onSubmit={handleSubmit}>
               <TextField
                 // variant=""
                 label="Name"

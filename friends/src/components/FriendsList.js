@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Card, Button } from "@material-ui/core";
 import { FriendsForm } from "./FriendsForm";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { friendCardStyles } from "../styles/friendCardStyles";
 
 export const FriendsList = () => {
+  const classes = friendCardStyles();
   const [friends, setFriends] = useState([]);
 
   useEffect(() => {
@@ -17,9 +19,9 @@ export const FriendsList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={classes.cardContainer}>
       {friends.map((friend) => (
-        <Card>
+        <Card className={classes.root}>
           <p>Name: {friend.name}</p>
           <p>Age: {friend.age}</p>
           <p>Email: {friend.email}</p>

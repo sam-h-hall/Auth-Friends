@@ -15,7 +15,7 @@ export const Login = () => {
       .then((res) => {
         console.log(res);
         localStorage.setItem("authToken", res.data.payload);
-        history.push("/protected");
+        history.push("/friends");
       })
       .catch((err) => {
         localStorage.removeItem("authToken");
